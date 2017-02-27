@@ -40,16 +40,17 @@ module.exports = yeoman.Base.extend({
       if (this.props.framework === 'jasmine') {
         this.props.testOptions = '{reporter: new require(\'jasmine-reporters\').TerminalReporter()}';
         this.props.testPackages =
-          '"gulp-jasmine": "^2.3.0",' +
-          '\n    "jasmine": "^2.4.1",' +
-          '\n    "jasmine-reporters": "^2.1.1"';
+          '"jasmine": "^2.5.3",' +
+          '\n    "karma-jasmine": "^1.1.0",' +
+          '\n    "@types/jasmine": "^2.5.43"';
       } else {
         this.props.testOptions = '{reporter: \'min\'}';
         this.props.testPackages =
           '"chai": "^3.5.0",' +
-          '\n    "mocha": "^2.4.5",' +
-          '\n    "gulp-mocha": "^2.2.0",' +
-          '\n    "sinon": "^1.17.3",' +
+          '\n    "karma-chai-sinon": "^0.1.5",' +
+          '\n    "karma-mocha": "^1.3.0",' +
+          '\n    "mocha": "^3.2.0",' +
+          '\n    "sinon": "^1.17.7",' +
           '\n    "sinon-chai": "^2.8.0"';
       }
     }.bind(this));
@@ -60,13 +61,14 @@ module.exports = yeoman.Base.extend({
 
     copy('.editorconfig');
     copy('.gitignore');
-    copy('karma.conf.js')
     copy('tsconfig.json');
     copy('tslint.json');
     copy('src/Greeter.ts', this.props.sourceDir + '/Greeter.ts');
     copy('src/Greeter.spec.ts.' + this.props.framework, this.props.testDir + '/Greeter.spec.ts');
-    copy('src/main.ts', this.props.sourceDir + '/' + this.props.name + '.ts');
-    
+    copy('src/index.ts', this.props.sourceDir + '/' + 'index.ts');
+
+    copyTemplate('karma.conf.js.tpl', 'karma.conf.js');
+    copyTemplate('webpack.config.js.tpl', 'webpack.config.js');
     copyTemplate('package.json.tpl', 'package.json');
 
     function copy(template, destination) {

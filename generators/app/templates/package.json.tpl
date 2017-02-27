@@ -3,23 +3,18 @@
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-browserify": "^0.5.1",
-    "gulp-istanbul": "^0.10.4",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-tslint": "^5.0.0",
-    "gulp-typescript": "^2.13.0",
-    "gulp-uglify": "^1.5.3",
-    "remap-istanbul": "^0.6.4",
-    "tslint": "^3.8.1",
-    "typescript": "^1.8.10",
-    "typings": "^1.3.0",
+    "istanbul": "^0.4.5",
+    "karma": "^1.5.0",
+    "karma-coverage": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-remap-istanbul": "^0.6.0",
+    "karma-webpack": "^2.0.2",
+    "phantomjs-prebuilt": "^2.1.14",
+    "ts-loader": "^2.0.1",
+    "tslint": "^4.4.2",
+    "tslint-loader": "^3.4.2",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1"
     <%- testPackages %>
-  },
-  "scripts": {
-    "postinstall": "./node_modules/.bin/typings install"
   }
 }
