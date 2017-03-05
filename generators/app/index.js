@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-module.exports = yeoman.Base.extend({
+module.exports = yeoman.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
