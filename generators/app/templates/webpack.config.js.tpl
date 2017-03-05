@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './<%= sourceDir %>/index.ts',
   devtool: 'source-map',
   resolve: {
     extensions: ['.ts']

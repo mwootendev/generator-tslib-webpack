@@ -3,7 +3,7 @@ let webpackConfig = require('./webpack.config');
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: [<%= karma.frameworks %>],
+    frameworks: [<%- karma.frameworks %>],
     plugins: [
       <%- karma.plugins %>
       require('karma-phantomjs-launcher'),
