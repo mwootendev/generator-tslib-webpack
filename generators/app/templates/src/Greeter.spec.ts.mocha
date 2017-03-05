@@ -1,7 +1,8 @@
 import * as chai from 'chai';
 import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';
-import {Greeter} from './Greeter';
+
+import { Greeter } from './Greeter';
 
 const expect = chai.expect;
 chai.use(sinonChai);

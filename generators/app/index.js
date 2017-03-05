@@ -49,15 +49,20 @@ module.exports = yeoman.extend({
       } else {
         this.props.karma = {
           frameworks: '\'mocha\', \'chai\', \'sinon\'',
-          plugins: ''
+          plugins: 'require(\'karma-mocha\'),' +
+            '\n      require(\'karma-chai\'),' +
+            '\n      require(\'karma-sinon\'),'
         };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
-          '\n    "karma-chai-sinon": "^0.1.5",' +
+          '\n    "karma-chai": "^0.1.0",' +
           '\n    "karma-mocha": "^1.3.0",' +
+          '\n    "karma-sinon": "^1.0.5",' +
           '\n    "mocha": "^3.2.0",' +
           '\n    "sinon": "^1.17.7",' +
-          '\n    "sinon-chai": "^2.8.0"';
+          '\n    "@types/chai": "^3.4.35",' +
+          '\n    "@types/mocha": "^2.2.39",' +
+          '\n    "@types/sinon": "^1.16.35"';
       }
     }.bind(this));
   },
