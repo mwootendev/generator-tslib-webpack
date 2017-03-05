@@ -38,13 +38,19 @@ module.exports = yeoman.Base.extend({
       this.props.framework = (props.testingFramework === 'Jasmine') ? 'jasmine' : 'mocha';
 
       if (this.props.framework === 'jasmine') {
-        this.props.testOptions = '{reporter: new require(\'jasmine-reporters\').TerminalReporter()}';
+        this.props.karma = {
+          frameworks: '\'jasmine\'',
+          plugins: 'require(\'karma-jasmine\'),'
+        };
         this.props.testPackages =
           '"jasmine": "^2.5.3",' +
           '\n    "karma-jasmine": "^1.1.0",' +
           '\n    "@types/jasmine": "^2.5.43"';
       } else {
-        this.props.testOptions = '{reporter: \'min\'}';
+        this.props.karma = {
+          frameworks: '\'mocha\', \'chai\', \'sinon\'',
+          plugins: ''
+        };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
           '\n    "karma-chai-sinon": "^0.1.5",' +
