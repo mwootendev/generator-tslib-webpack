@@ -5,6 +5,7 @@ import { Greeter } from './Greeter';
 describe('Greeter', () => {
 
     let greeter: Greeter = new Greeter();
+    let logSpy: jasmine.Spy;
 
     it('should exist', () => {
         expect(Greeter).toBeDefined();
@@ -14,7 +15,7 @@ describe('Greeter', () => {
     describe('greet()', () => {
 
         beforeEach(() => {
-            spyOn(console, 'log');
+            logSpy = spyOn(console, 'log');
         });
 
         it('should exist', () => {
@@ -37,7 +38,7 @@ describe('Greeter', () => {
         });
 
         afterEach(() => {
-            console.log.calls.reset();
+            logSpy.calls.reset();
         });
 
     });
