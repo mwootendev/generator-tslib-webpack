@@ -1,4 +1,9 @@
 let webpackConfig = require('./webpack.config');
+webpackConfig.module.rules.push({
+  test: /\.ts$/,
+  loader: 'istanbul-instrumenter-loader',
+  exclude: /\.spec\.ts$/
+});
 
 module.exports = function (config) {
   config.set({
@@ -7,7 +12,7 @@ module.exports = function (config) {
     plugins: [
       <%- karma.plugins %>
       require('karma-phantomjs-launcher'),
-      require('karma-remap-istanbul'),
+      require('karma-coverage-istanbul-reporter'),
       require('karma-webpack')
     ],
     files: [
@@ -23,6 +28,10 @@ module.exports = function (config) {
       module: webpackConfig.module,
       resolve: webpackConfig.resolve
     },
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly', 'text-summary' ],
+      fixWebpackSourcePaths: true
+    },
     remapIstanbulReporter: {
       reports: {
         html: 'coverage',
@@ -30,7 +39,7 @@ module.exports = function (config) {
         "text-summary": ''
       }
     },
-    reporters: ['progress', 'karma-remap-istanbul'],
+    reporters: ['progress', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

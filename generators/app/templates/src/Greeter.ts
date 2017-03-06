@@ -13,4 +13,3 @@ export class Greeter {
         console.log(`${this.greeting}, ${addressee}`);
     }
 }
-

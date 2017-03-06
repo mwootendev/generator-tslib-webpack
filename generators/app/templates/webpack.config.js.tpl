@@ -22,14 +22,16 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: ['ts-loader']
+        use: ['ts-loader'],
+        enforce: 'pre'
       },
-        {
-            test: /\.ts$/,
-            enforce: 'pre',
-            loader: 'tslint-loader',
-            options: { /* Loader options go here */ }
-        }
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        exclude: /(node_modules)/,
+        options: { /* Loader options go here */ }
+      }
     ]
   }
 };

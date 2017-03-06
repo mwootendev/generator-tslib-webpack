@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
-    "codelyzer": "0.0.20",
     "istanbul": "^0.4.5",
     "istanbul-instrumenter-loader": "^2.0.0",
     "karma": "^1.5.0",
     "karma-coverage": "^1.1.1",
+    "karma-coverage-istanbul-reporter": "^0.3.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-remap-istanbul": "^0.6.0",
     "karma-webpack": "^2.0.2",
