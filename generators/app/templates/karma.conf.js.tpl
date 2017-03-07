@@ -1,4 +1,4 @@
-let webpackConfig = require('./webpack.config');
+let webpackConfig = require('./webpack.config')();
 webpackConfig.module.rules.push({
   test: /\.ts$/,
   loader: 'istanbul-instrumenter-loader',

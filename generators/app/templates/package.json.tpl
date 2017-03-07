@@ -1,5 +1,11 @@
 {
   "name": "<%= name %>",
+  "scripts": {
+    "build:dev": "webpack",
+    "build:prod": "webpack --env=production",
+    "build": "npm run build:dev && npm run build:prod",
+    "test": "karma start"
+  },
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
