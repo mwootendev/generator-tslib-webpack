@@ -60,9 +60,11 @@ module.exports = yeoman.extend({
           '\n    "karma-sinon": "^1.0.5",' +
           '\n    "mocha": "^3.2.0",' +
           '\n    "sinon": "^1.17.7",' +
+          '\n    "sinon-chai": "^2.8.0",' +
           '\n    "@types/chai": "^3.4.35",' +
           '\n    "@types/mocha": "^2.2.39",' +
-          '\n    "@types/sinon": "^1.16.35"';
+          '\n    "@types/sinon": "^1.16.35",' +
+          '\n    "@types/sinon-chai": "^2.7.27"';
       }
     }.bind(this));
   },
