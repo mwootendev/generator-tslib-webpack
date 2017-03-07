@@ -78,8 +78,8 @@ module.exports = yeoman.extend({
     copy('.gitignore');
     copy('tsconfig.json');
     copy('tslint.json');
-    copy('src/Greeter.ts', this.props.sourceDir + '/Greeter.ts');
-    copy('src/Greeter.spec.ts.' + this.props.framework, this.props.testDir + '/Greeter.spec.ts');
+    copy('src/greeter.ts', this.props.sourceDir + '/greeter.ts');
+    copy('src/greeter.spec.ts.' + this.props.framework, this.props.testDir + '/greeter.spec.ts');
     copy('src/index.ts', this.props.sourceDir + '/' + 'index.ts');
 
     copyTemplate('karma.conf.js.tpl', 'karma.conf.js');
