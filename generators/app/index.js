@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var changeCase = require('change-case');
 
 module.exports = yeoman.extend({
   prompting: function () {
@@ -14,7 +15,7 @@ module.exports = yeoman.extend({
       type    : 'input',
       name    : 'name',
       message : 'Your project name',
-      default : this.appname
+      default : changeCase.paramCase(this.appname)
     },{
       type: 'list',
       name: 'testingFramework',
@@ -35,6 +36,7 @@ module.exports = yeoman.extend({
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.props.name = changeCase.paramCase(this.props.name);
       this.props.framework = (props.testingFramework === 'Jasmine') ? 'jasmine' : 'mocha';
 
       if (this.props.framework === 'jasmine') {

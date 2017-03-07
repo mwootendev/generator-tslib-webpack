@@ -1,5 +1,6 @@
 {
   "name": "<%= name %>",
+  "main": "lib/<%= name %>.js",
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack --env=production",
