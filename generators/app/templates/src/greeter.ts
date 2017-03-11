@@ -1,15 +1,15 @@
 export class Greeter {
-    private greeting: string;
+  private greeting: string;
 
-    constructor(greeting?: string) {
-        if (greeting) {
-            this.greeting = greeting;
-        } else {
-            this.greeting = 'Hello';
-        }
-    }
+  constructor(greeting?: string) {
+      if (greeting) {
+        this.greeting = greeting;
+      } else {
+        this.greeting = 'Hello';
+      }
+  }
 
-    public greet(addressee: string) {
-        console.log(`${this.greeting}, ${addressee}`);
-    }
+  public greet(addressee: string): string {
+      return `${this.greeting}, ${addressee}`;
+  }
 }

@@ -20,7 +20,7 @@ module.exports = yeoman.extend({
       type: 'list',
       name: 'testingFramework',
       message: 'Which testing framework would you like to use?',
-      choices: ['Mocha+Chai+Sinon', 'Jasmine']
+      choices: ['Mocha+Chai', 'Jasmine']
     },{
       type    : 'input',
       name    : 'sourceDir',
@@ -50,23 +50,17 @@ module.exports = yeoman.extend({
           '\n    "@types/jasmine": "^2.5.43"';
       } else {
         this.props.karma = {
-          frameworks: '\'mocha\', \'chai\', \'sinon\'',
+          frameworks: '\'mocha\', \'chai\'',
           plugins: 'require(\'karma-mocha\'),' +
-            '\n      require(\'karma-chai\'),' +
-            '\n      require(\'karma-sinon\'),'
+            '\n      require(\'karma-chai\'),'
         };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
           '\n    "karma-chai": "^0.1.0",' +
           '\n    "karma-mocha": "^1.3.0",' +
-          '\n    "karma-sinon": "^1.0.5",' +
           '\n    "mocha": "^3.2.0",' +
-          '\n    "sinon": "^1.17.7",' +
-          '\n    "sinon-chai": "^2.8.0",' +
           '\n    "@types/chai": "^3.4.35",' +
-          '\n    "@types/mocha": "^2.2.39",' +
-          '\n    "@types/sinon": "^1.16.35",' +
-          '\n    "@types/sinon-chai": "^2.7.27"';
+          '\n    "@types/mocha": "^2.2.39"';
       }
     }.bind(this));
   },
@@ -80,7 +74,7 @@ module.exports = yeoman.extend({
     copy('tslint.json');
     copy('src/greeter.ts', this.props.sourceDir + '/greeter.ts');
     copy('src/greeter.spec.ts.' + this.props.framework, this.props.testDir + '/greeter.spec.ts');
-    copy('src/index.ts', this.props.sourceDir + '/' + 'index.ts');
+    copy('src/index.ts', this.props.sourceDir + '/index.ts');
 
     copyTemplate('karma.conf.js.tpl', 'karma.conf.js');
     copyTemplate('webpack.config.js.tpl', 'webpack.config.js');

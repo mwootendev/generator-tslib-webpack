@@ -1,14 +1,10 @@
-import * as sinonChai from 'sinon-chai';
-
 import { Greeter } from './greeter';
 
-chai.use(sinonChai);
 const expect = chai.expect;
 
 describe('Greeter', () => {
 
     let greeter: Greeter = new Greeter();
-    let logSpy: sinon.SinonSpy;
 
     it('should exist', () => {
         expect(Greeter).to.exist;
@@ -17,31 +13,23 @@ describe('Greeter', () => {
 
     describe('greet()', () => {
 
-        beforeEach(() => {
-            logSpy = sinon.spy(console, 'log');
-        });
-
         it('should exist', () => {
             expect(greeter.greet).to.exist;
             expect(typeof greeter.greet).to.be.eq('function');
         });
 
         it('should print a default greeting to the console', () => {
-            greeter.greet('World');
+            const greeting = greeter.greet('World');
 
-            expect(logSpy).to.have.been.calledWith('Hello, World');
+            expect(greeting).to.be.eq('Hello, World');
         });
 
         it('should use a custom greeting if provided', () => {
             greeter = new Greeter('Hola');
 
-            greeter.greet('World');
+            const greeting = greeter.greet('World');
 
-            expect(logSpy).to.have.been.calledWith('Hola, World');
-        });
-
-        afterEach(() => {
-            logSpy.restore();
+            expect(greeting).to.be.eq('Hola, World');
         });
 
     });

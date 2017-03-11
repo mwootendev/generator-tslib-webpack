@@ -1,11 +1,8 @@
-import {} from 'jasmine';
-
 import { Greeter } from './greeter';
 
 describe('Greeter', () => {
 
     let greeter: Greeter = new Greeter();
-    let logSpy: jasmine.Spy;
 
     it('should exist', () => {
         expect(Greeter).toBeDefined();
@@ -14,31 +11,23 @@ describe('Greeter', () => {
 
     describe('greet()', () => {
 
-        beforeEach(() => {
-            logSpy = spyOn(console, 'log');
-        });
-
         it('should exist', () => {
             expect(greeter.greet).toBeDefined();
             expect(typeof greeter.greet).toBe('function');
         });
 
-        it('should print a default greeting to the console', () => {
-            greeter.greet('World');
+        it('should use a default greeting if one is not provided', () => {
+            const greeting = greeter.greet('World');
 
-            expect(console.log).toHaveBeenCalledWith('Hello, World');
+            expect(greeting).toEqual('Hello, World');
         });
 
         it('should use a custom greeting if provided', () => {
             greeter = new Greeter('Hola');
 
-            greeter.greet('World');
+            const greeting = greeter.greet('World');
 
-            expect(console.log).toHaveBeenCalledWith('Hola, World');
-        });
-
-        afterEach(() => {
-            logSpy.calls.reset();
+            expect(greeting).toEqual('Hola, World');
         });
 
     });
