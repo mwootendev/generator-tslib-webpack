@@ -11,32 +11,41 @@ module.exports = yeoman.extend({
       'Welcome to the sensational ' + chalk.red('generator-tslib-webpack') + ' generator!'
     ));
 
-    var prompts = [{
-      type    : 'input',
-      name    : 'name',
-      message : 'Your project name',
-      default : changeCase.paramCase(this.appname)
-    },{
-      type: 'list',
-      name: 'testingFramework',
-      message: 'Which testing framework would you like to use?',
-      choices: ['Mocha+Chai', 'Jasmine']
-    },{
-      type    : 'input',
-      name    : 'sourceDir',
-      message : 'Source directory (src, app, etc.)',
-      default : 'src'
-    },{
-      type    : 'input',
-      name    : 'testDir',
-      message : 'Test directory (src, test, spec, etc.)',
-      default : 'src'
-    }];
+    var prompts = [
+      {
+        type    : 'input',
+        name    : 'name',
+        message : 'Your project name',
+        default : changeCase.paramCase(this.appname)
+      },
+      {
+        type: 'list',
+        name: 'testingFramework',
+        message: 'Which testing framework would you like to use?',
+        choices: ['Mocha+Chai', 'Jasmine']
+      },
+      /*
+      {
+        type    : 'input',
+        name    : 'sourceDir',
+        message : 'Source directory (src, app, etc.)',
+        default : 'src'
+      },
+      {
+        type    : 'input',
+        name    : 'testDir',
+        message : 'Test directory (src, test, spec, etc.)',
+        default : 'src'
+      }
+      */
+    ];
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
       this.props.name = changeCase.paramCase(this.props.name);
+      this.props.sourceDir = 'src';
+      this.props.testDir = 'src';
       this.props.framework = (props.testingFramework === 'Jasmine') ? 'jasmine' : 'mocha';
 
       if (this.props.framework === 'jasmine') {
