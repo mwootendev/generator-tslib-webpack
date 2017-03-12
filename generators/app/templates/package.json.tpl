@@ -1,10 +1,21 @@
 {
   "name": "<%= name %>",
+  "files": [
+    "lib/"
+  ],
   "main": "lib/<%= name %>.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack --env=production",
     "build": "npm run build:dev && npm run build:prod",
+    "clean": "rimraf lib",
+    "preversion": "npm test -- --single-run",
+    "version": "npm run build && git add -A -f lib",
+    "postversion": "git push --tags origin",
+    "release:patch": "npm run clean && npm version patch",
+    "release:minor": "npm run clean && npm version minor",
+    "release:major": "npm run clean && npm version major",
     "test": "karma start"
   },
   "version": "0.0.1",
