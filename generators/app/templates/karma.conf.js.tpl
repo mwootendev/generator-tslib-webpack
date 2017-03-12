@@ -19,7 +19,7 @@ module.exports = function (config) {
       { pattern: './src/**/*.spec.ts', watched: false }
     ],
     preprocessors: {
-      './src/*.ts': ['webpack']
+      './src/**/*.ts': ['webpack']
     },
     mime: {
       'text/x-typescript': ['ts']

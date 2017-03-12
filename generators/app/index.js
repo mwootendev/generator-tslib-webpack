@@ -84,6 +84,8 @@ module.exports = yeoman.extend({
     copy('src/greeter.ts', this.props.sourceDir + '/greeter.ts');
     copy('src/greeter.spec.ts.' + this.props.framework, this.props.testDir + '/greeter.spec.ts');
     copy('src/index.ts', this.props.sourceDir + '/index.ts');
+    copy('.vscode/settings.json');
+    copy('.vscode/tasks.json');
 
     copyTemplate('karma.conf.js.tpl', 'karma.conf.js');
     copyTemplate('webpack.config.js.tpl', 'webpack.config.js');
