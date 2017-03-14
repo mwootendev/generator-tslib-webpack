@@ -9,7 +9,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack --env=production",
     "build": "npm run build:dev && npm run build:prod",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib coverage",
     "lint": "tslint \"src/**/*.ts\"",
     "preversion": "npm test -- --single-run",
     "version": "npm run build && git add -A -f lib",
