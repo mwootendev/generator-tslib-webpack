@@ -66,9 +66,8 @@ You will be prompted for the following information
     |-- package.json
     |-- <source directory>
         |-- greeter.ts
+        |-- greeter.spec.ts
         |-- index.ts
-    |-- <test directory>
-        |-- Greeter.spec.ts
     |-- tsconfig.json
     |-- tslint.json
     |-- webpack.config.js
@@ -106,13 +105,13 @@ Any new code meant to be distributed with the library should be placed in here.
 An example TypeScript class that writes a simple message to the console.
 This file should be replaced with the actual functionality of your library.
 
+#### `<source directory>/greeter.spec.ts`
+An example set of test cases for the Greeter class. This should be replaced
+with test cases specific to your library.
+
 #### `<source directory>/index.ts`
 The main TypeScript file pulling together all of the parts of the library.
 References to new TypeScript files should be placed in here.
-
-#### `<test directory>/greeter.spec.ts`
-An example set of test cases for the Greeter class. This should be replaced
-with test cases specific to your library.
 
 #### `tsconfig.json`
 The configuration for the TypeScript compiler. Any changes to how the TypeScript
