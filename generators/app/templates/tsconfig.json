@@ -6,7 +6,7 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "./lib",
+    "declarationDir": "./",
     "target": "es5",
     "typeRoots": [
       "./node_modules/@types"
