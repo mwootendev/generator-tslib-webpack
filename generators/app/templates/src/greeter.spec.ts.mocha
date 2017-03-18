@@ -1,0 +1,36 @@
+import { Greeter } from './greeter';
+
+const expect = chai.expect;
+
+describe('Greeter', () => {
+
+    let greeter: Greeter = new Greeter();
+
+    it('should exist', () => {
+        expect(Greeter).to.exist;
+        expect(Greeter).to.be.a.constructor;
+    });
+
+    describe('greet()', () => {
+
+        it('should exist', () => {
+            expect(greeter.greet).to.exist;
+            expect(typeof greeter.greet).to.be.eq('function');
+        });
+
+        it('should print a default greeting to the console', () => {
+            const greeting = greeter.greet('World');
+
+            expect(greeting).to.be.eq('Hello, World');
+        });
+
+        it('should use a custom greeting if provided', () => {
+            greeter = new Greeter('Hola');
+
+            const greeting = greeter.greet('World');
+
+            expect(greeting).to.be.eq('Hola, World');
+        });
+
+    });
+});

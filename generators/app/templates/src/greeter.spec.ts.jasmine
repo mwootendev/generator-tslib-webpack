@@ -1,0 +1,34 @@
+import { Greeter } from './greeter';
+
+describe('Greeter', () => {
+
+    let greeter: Greeter = new Greeter();
+
+    it('should exist', () => {
+        expect(Greeter).toBeDefined();
+        expect(typeof Greeter).toEqual('function');
+    });
+
+    describe('greet()', () => {
+
+        it('should exist', () => {
+            expect(greeter.greet).toBeDefined();
+            expect(typeof greeter.greet).toBe('function');
+        });
+
+        it('should use a default greeting if one is not provided', () => {
+            const greeting = greeter.greet('World');
+
+            expect(greeting).toEqual('Hello, World');
+        });
+
+        it('should use a custom greeting if provided', () => {
+            greeter = new Greeter('Hola');
+
+            const greeting = greeter.greet('World');
+
+            expect(greeting).toEqual('Hola, World');
+        });
+
+    });
+});
