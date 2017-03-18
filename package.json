@@ -1,6 +1,6 @@
 {
   "name": "generator-tslib-webpack",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Yeoman generator for scaffolding a reusable library written in Typescript.",
   "homepage": "https://github.com/mwootendev/generator-tslib-webpack",
   "author": {
