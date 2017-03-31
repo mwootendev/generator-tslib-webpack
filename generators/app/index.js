@@ -77,8 +77,8 @@ module.exports = yeoman.extend({
   writing: function () {
     var generator = this;
 
-    copy('.editorconfig');
-    copy('.gitignore');
+    copy('_editorconfig', '.editorconfig');
+    copy('_gitignore', '.gitignore');
     copy('tsconfig.json');
     copy('tslint.json');
     copy('src/greeter.ts', this.props.sourceDir + '/greeter.ts');
