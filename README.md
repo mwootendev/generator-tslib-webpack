@@ -6,7 +6,7 @@ A [Yeoman](http://yeoman.io) generator for generating a UMD JavaScript library u
 
 1. Scaffold a library module project written in TypeScript
 2. Supports test driven development (TDD)
-   - Choice of testing framework (Jasmine or Moha+Chai)
+   - Choice of testing framework (Jasmine or Mocha+Chai+Sinon)
    - Tests written in TypeScript
    - Code coverage on source TypeScript files
    - Tests and coverage run when code changes
@@ -51,7 +51,7 @@ yo tslib-webpack
 
 You will be prompted for the following information
    - Project name (defaults to current folder name)
-   - Choice of testing framework (Jasmine or Mocha/Chai)
+   - Choice of testing framework (Jasmine or Mocha/Chai/Sinon)
 
 ## Working with the Generated Files
 

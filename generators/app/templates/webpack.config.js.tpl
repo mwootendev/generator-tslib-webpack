@@ -12,7 +12,7 @@ module.exports = function(env) {
     entry: './<%= sourceDir %>/index.ts',
     devtool: 'source-map',
     resolve: {
-      extensions: ['.ts']
+      extensions: ['.ts', '.js']
     },
     output: {
       filename: filename,

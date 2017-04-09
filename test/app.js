@@ -64,7 +64,7 @@ describe('generator-tslib-webpack:app', function () {
       });
   });
 
-  describe('Mocha+Chai', function() {
+  describe('Mocha+Chai+Sinon', function() {
 
     before(function () {
       return helpers.run(path.join(__dirname, '../generators/app'))
@@ -98,9 +98,11 @@ describe('generator-tslib-webpack:app', function () {
         assert.jsonFileContent('package.json', {name: 'test-package'});
       });
 
-      it('is configured for Mocha+Chai', function() {
+      it('is configured for Mocha+Chai+Sinon', function() {
         assert.fileContent('package.json', /mocha/);
         assert.fileContent('package.json', /chai/);
+        assert.fileContent('package.json', /sinon/);
+        assert.fileContent('package.json', /sinon-chai/);
       });
 
       it('does not reference Jasmine', function() {
@@ -111,9 +113,9 @@ describe('generator-tslib-webpack:app', function () {
 
     describe('karma.conf.js', function() {
 
-      it('is configured for Mocha+Chai', function() {
+      it('is configured for Mocha+Chai+Sinon', function() {
         assert.fileContent('karma.conf.js', /karma-mocha/);
-        assert.fileContent('karma.conf.js', /karma-chai/);
+        assert.fileContent('karma.conf.js', /karma-sinon-chai/);
       });
 
       it('does not reference Jasmine', function() {
