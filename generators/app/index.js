@@ -22,7 +22,7 @@ module.exports = yeoman.extend({
         type: 'list',
         name: 'testingFramework',
         message: 'Which testing framework would you like to use?',
-        choices: ['Mocha+Chai', 'Jasmine']
+        choices: ['Mocha+Chai+Sinon', 'Jasmine']
       },
       /*
       {
@@ -59,17 +59,21 @@ module.exports = yeoman.extend({
           '\n    "@types/jasmine": "^2.5.43"';
       } else {
         this.props.karma = {
-          frameworks: '\'mocha\', \'chai\'',
+          frameworks: '\'mocha\', \'sinon-chai\'',
           plugins: 'require(\'karma-mocha\'),' +
-            '\n      require(\'karma-chai\'),'
+            '\n      require(\'karma-sinon-chai\'),'
         };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
-          '\n    "karma-chai": "^0.1.0",' +
+          '\n    "karma-sinon-chai": "^1.3.1",' +
           '\n    "karma-mocha": "^1.3.0",' +
           '\n    "mocha": "^3.2.0",' +
+          '\n    "sinon": "^2.1.0",' +
+          '\n    "sinon-chai": "^2.9.0",' +
           '\n    "@types/chai": "^3.4.35",' +
-          '\n    "@types/mocha": "^2.2.39"';
+          '\n    "@types/mocha": "^2.2.39",' +
+          '\n    "@types/sinon": "^2.1.2",' +
+          '\n    "@types/sinon-chai": "^2.7.27"';
       }
     }.bind(this));
   },

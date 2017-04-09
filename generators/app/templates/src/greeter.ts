@@ -12,4 +12,8 @@ export class Greeter {
   public greet(addressee: string): string {
       return `${this.greeting}, ${addressee}`;
   }
+
+  public sayGreeting(addressee: string) {
+    console.log(this.greet(addressee));
+  }
 }
