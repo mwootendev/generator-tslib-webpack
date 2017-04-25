@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Michael Wooten",
+      "authorEmail": "mwooten.dev@gmail.com",
+      "authorUrl": "http://www.mwootendev.com"
+    }
+  }
+}

@@ -1,29 +1,29 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var changeCase = require('change-case');
 
-module.exports = yeoman.extend({
-  prompting: function () {
+module.exports = class extends Generator {
+  prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the sensational ' + chalk.red('generator-tslib-webpack') + ' generator!'
     ));
 
-    var prompts = [
+    const prompts = [
       {
-        type    : 'input',
-        name    : 'name',
-        message : 'Your project name',
-        default : changeCase.paramCase(this.appname)
+        type: 'input',
+        name: 'name',
+        message: 'Your project name',
+        default: changeCase.paramCase(this.appname)
       },
       {
         type: 'list',
         name: 'testingFramework',
         message: 'Which testing framework would you like to use?',
         choices: ['Mocha+Chai+Sinon', 'Jasmine']
-      },
+      }
       /*
       {
         type    : 'input',
@@ -40,7 +40,7 @@ module.exports = yeoman.extend({
       */
     ];
 
-    return this.prompt(prompts).then(function (props) {
+    return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
       this.props.name = changeCase.paramCase(this.props.name);
@@ -75,10 +75,10 @@ module.exports = yeoman.extend({
           '\n    "@types/sinon": "^2.1.2",' +
           '\n    "@types/sinon-chai": "^2.7.27"';
       }
-    }.bind(this));
-  },
+    });
+  }
 
-  writing: function () {
+  writing() {
     var generator = this;
 
     copy('_editorconfig', '.editorconfig');
@@ -110,9 +110,9 @@ module.exports = yeoman.extend({
         generator.props
       );
     }
-  },
+  }
 
-  install: function () {
+  install() {
     this.installDependencies();
   }
-});
+};

@@ -29,13 +29,15 @@
     "yeoman-generator": "^1.0.0",
     "chalk": "^1.1.3",
     "change-case": "3.0.1",
-    "yosay": "^1.2.1"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^2.2.1",
-    "eslint": "^3.1.1",
-    "eslint-config-xo-space": "^0.15.0",
+    "yeoman-assert": "^3.0.0",
+    "coveralls": "^2.12.0",
+    "nsp": "^2.6.3",
+    "eslint": "^3.18.0",
+    "eslint-config-xo-space": "^0.16.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
@@ -49,13 +51,18 @@
   "eslintConfig": {
     "extends": "xo-space",
     "env": {
-      "mocha": true
+      "jest": true,
+      "node": true
     }
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": "https://github.com/mwootendev/generator-tslib-webpack.git",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
   },
   "license": "MIT"
 }
