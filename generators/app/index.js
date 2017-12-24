@@ -58,8 +58,8 @@ module.exports = class extends Generator {
           plugins: "require('karma-jasmine'),"
         };
         this.props.testPackages =
-          '"jasmine": "^2.5.3",' +
-          '\n    "karma-jasmine": "^1.1.0",' +
+          '"jasmine": "^2.8.0",' +
+          '\n    "karma-jasmine": "^1.1.1",' +
           '\n    "@types/jasmine": "^2.5.43"';
       } else {
         this.props.karma = {
