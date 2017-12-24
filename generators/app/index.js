@@ -7,9 +7,13 @@ var changeCase = require('change-case');
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the sensational ' + chalk.red('generator-tslib-webpack') + ' generator!'
-    ));
+    this.log(
+      yosay(
+        'Welcome to the sensational ' +
+          chalk.red('generator-tslib-webpack') +
+          ' generator!'
+      )
+    );
 
     const prompts = [
       {
@@ -46,12 +50,12 @@ module.exports = class extends Generator {
       this.props.name = changeCase.paramCase(this.props.name);
       this.props.sourceDir = 'src';
       this.props.testDir = 'src';
-      this.props.framework = (props.testingFramework === 'Jasmine') ? 'jasmine' : 'mocha';
+      this.props.framework = props.testingFramework === 'Jasmine' ? 'jasmine' : 'mocha';
 
       if (this.props.framework === 'jasmine') {
         this.props.karma = {
-          frameworks: '\'jasmine\'',
-          plugins: 'require(\'karma-jasmine\'),'
+          frameworks: "'jasmine'",
+          plugins: "require('karma-jasmine'),"
         };
         this.props.testPackages =
           '"jasmine": "^2.5.3",' +
@@ -59,9 +63,8 @@ module.exports = class extends Generator {
           '\n    "@types/jasmine": "^2.5.43"';
       } else {
         this.props.karma = {
-          frameworks: '\'mocha\', \'sinon-chai\'',
-          plugins: 'require(\'karma-mocha\'),' +
-            '\n      require(\'karma-sinon-chai\'),'
+          frameworks: "'mocha', 'sinon-chai'",
+          plugins: "require('karma-mocha'),\n      require('karma-sinon-chai'),"
         };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
@@ -86,7 +89,10 @@ module.exports = class extends Generator {
     copy('tsconfig.json');
     copy('tslint.json');
     copy('src/greeter.ts', this.props.sourceDir + '/greeter.ts');
-    copy('src/greeter.spec.ts.' + this.props.framework, this.props.testDir + '/greeter.spec.ts');
+    copy(
+      'src/greeter.spec.ts.' + this.props.framework,
+      this.props.testDir + '/greeter.spec.ts'
+    );
     copy('src/index.ts', this.props.sourceDir + '/index.ts');
     copy('.vscode/settings.json');
     copy('.vscode/tasks.json');
@@ -113,6 +119,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies({bower: false});
+    this.installDependencies({ bower: false });
   }
 };
