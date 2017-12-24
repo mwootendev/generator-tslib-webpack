@@ -68,15 +68,15 @@ module.exports = class extends Generator {
         };
         this.props.testPackages =
           '"chai": "^3.5.0",' +
-          '\n    "karma-sinon-chai": "^1.3.1",' +
+          '\n    "karma-sinon-chai": "^1.3.3",' +
           '\n    "karma-mocha": "^1.3.0",' +
-          '\n    "mocha": "^3.2.0",' +
+          '\n    "mocha": "^3.4.3",' +
           '\n    "sinon": "^2.1.0",' +
-          '\n    "sinon-chai": "^2.9.0",' +
-          '\n    "@types/chai": "^3.4.35",' +
-          '\n    "@types/mocha": "^2.2.39",' +
-          '\n    "@types/sinon": "^2.1.2",' +
-          '\n    "@types/sinon-chai": "^2.7.27"';
+          '\n    "sinon-chai": "^2.14.0",' +
+          '\n    "@types/chai": "^3.5.2",' +
+          '\n    "@types/mocha": "^2.2.45",' +
+          '\n    "@types/sinon": "^2.3.7",' +
+          '\n    "@types/sinon-chai": "^2.7.29"';
       }
     });
   }
