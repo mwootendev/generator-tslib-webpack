@@ -5,7 +5,10 @@ module.exports = function(env) {
   const productionBuild = env === 'production';
   const filename = `<%= name %>${productionBuild ? '.min' : ''}.js`;
   const plugins = productionBuild ?
-    [new webpack.optimize.UglifyJsPlugin({sourceMap: true})] :
+    [
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new webpack.optimize.UglifyJsPlugin({sourceMap: true})
+    ] :
     [];
 
   return {
