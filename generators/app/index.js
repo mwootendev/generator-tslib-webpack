@@ -27,6 +27,12 @@ module.exports = class extends Generator {
         name: 'testingFramework',
         message: 'Which testing framework would you like to use?',
         choices: ['Mocha+Chai+Sinon', 'Jasmine']
+      },
+      {
+        type: 'list',
+        name: 'packageManager',
+        message: 'Which package manager do you prefer?',
+        choices: ['npm', 'Yarn']
       }
       /*
       {
@@ -119,6 +125,11 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies({ bower: false });
+    const installOptions = {
+      bower: false,
+      npm: this.props.packageManager === 'npm',
+      yarn: this.props.packageManager === 'Yarn'
+    };
+    this.installDependencies(installOptions);
   }
 };
